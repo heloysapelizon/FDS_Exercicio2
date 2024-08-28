@@ -1,6 +1,5 @@
 public class Validador{
-    public enum Tipo { EMAIL, INTEIRO, MATRICULA }
-
+    public enum Tipo { EMAIL, INTEIRO, MATRICULA, CPF, DATA }
     public boolean valida(Tipo tipo,String valor){
         switch(tipo){
             case INTEIRO:
@@ -24,6 +23,20 @@ public class Validador{
                     }
                 }
                 return false;
+            case CPF:
+                if (!valida(Tipo.INTEIRO,valor) || valor.length() != 11){
+                    return false;
+                }
+                if (verificador(valor, 1, valor.length() - 2) != valor.charAt(9)){
+                    return false;
+                }
+                if (verificador(valor, 0, valor.length() - 1) != valor.charAt(10)){
+                    return false;
+                }
+                return true;
+            case DATA:
+                boolean validaFormato = valida(Tipo.INTEIRO, valor.substring(0, 2));
+                validaFormato = (valor.charAt(2) == '/');
             case EMAIL:
                 int posA = valor.indexOf('@');
                 int posPt = valor.indexOf('.');
@@ -32,5 +45,12 @@ public class Validador{
             default:
                 return false;
         }
+    }
+    private int verificador(String valor, int inicio, int fim){
+        int verificador = 0;
+        for (int i = inicio; i < fim; i++){
+            verificador += valor.charAt(i - inicio) * i;
+        }
+        return verificador % 11;
     }
 }
