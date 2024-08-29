@@ -1,18 +1,11 @@
 import java.util.List;
 
-public class VisualizadorDeSomatorio {
+public class VisualizadorDeSomatorio implements EventoFonteDeDados{
     private List<Integer> valores;
-
-    public VisualizadorDeSomatorio(List<Integer> valores){
+    
+    public void notifica (List <Integer> valores){ 
         this.valores = valores;
-    }
-
-    public void defineValores(List<Integer> valores){
-        this.valores = valores;
-    }
-
-    public void acrescentaValor(Integer valor){
-        this.valores.add(valor);
+        this.exibeSomatorio();
     }
 
     public void exibeSomatorio(){

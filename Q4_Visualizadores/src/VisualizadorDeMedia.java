@@ -1,18 +1,11 @@
 import java.util.List;
 
-public class VisualizadorDeMedia {
+public class VisualizadorDeMedia implements EventoFonteDeDados{
     private List<Integer> valores;
 
-    public VisualizadorDeMedia(List<Integer> valores){
+    public void notifica (List <Integer> valores){ 
         this.valores = valores;
-    }
-
-    public void defineValores(List<Integer> valores){
-        this.valores = valores;
-    }
-
-    public void acrescentaValor(Integer valor){
-        this.valores.add(valor);
+        this.exibeMedia();
     }
 
     public void exibeMedia(){

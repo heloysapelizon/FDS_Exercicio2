@@ -3,8 +3,11 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) throws Exception {
         var dados = new FonteDeDados();
-        var cm = new VisualizadorDeMedia(dados.getValores());
-        var cs = new VisualizadorDeSomatorio(dados.getValores());
+        var cm = new VisualizadorDeMedia();
+        var cs = new VisualizadorDeSomatorio();
+
+        dados.registraObservador(cm);
+        dados.registraObservador(cs);
 
         Scanner s = new Scanner(System.in);
         int valor = 0;
@@ -15,10 +18,6 @@ public class App {
                 break;
             }
             dados.add(valor);
-            cs.acrescentaValor(valor);
-            cm.acrescentaValor(valor);
-            cs.exibeSomatorio();
-            cm.exibeMedia();
         }
         System.out.println("Fim");
     }
