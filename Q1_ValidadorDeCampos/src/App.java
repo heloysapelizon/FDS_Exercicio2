@@ -9,7 +9,7 @@ public class App {
             System.out.println(email+" não é um email válido!");
         }
 
-        String cpf = "05519961104";
+        String cpf = "05519961107";
         var validadorCpf = new ValidadorCpf();
         var validadorInteiro = new ValidadorInteiro();
         String valido = validadorCpf.valida(Validador.Tipo.CPF, cpf) && validadorInteiro.valida(Validador.Tipo.INTEIRO, cpf) ? " é um cpf válido" : " não é um cpf válido";
