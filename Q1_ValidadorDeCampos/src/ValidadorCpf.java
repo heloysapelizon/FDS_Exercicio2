@@ -1,5 +1,8 @@
 public class ValidadorCpf extends ValidadorInteiro{
     public boolean valida(Tipo tipo,String valor){
+        if(!super.valida(tipo, valor)){
+            return false;
+        }
         if (verificador(valor, 9) != Character.getNumericValue(valor.charAt(9))){
             return false;
         }

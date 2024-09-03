@@ -1,5 +1,8 @@
-public class ValidadorMatricula implements Validador{
+public class ValidadorMatricula extends ValidadorInteiro{
     public boolean valida(Tipo tipo,String valor){
+        if (!super.valida(tipo, valor)){
+            return false;
+        }
         if (!valida(Tipo.INTEIRO,valor)){
             return false;
         }else{
