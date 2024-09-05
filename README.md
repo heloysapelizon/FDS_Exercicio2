@@ -19,3 +19,7 @@ o arquivo README de cada questão para maiores detalhes.
 ## Q4: Sistema de notificação usando observer
 
     - Estrutura de dados que notifica contabilizadores de estatísticas diversas
+
+# Exercício 2 - Fundamentos de Desenvolvimento de Software
+# Heloysa Pelizon e Luana Sostisso
+Foram feitas alterações nos problemas, a fim de deixar os projetos mais a fim possível com os padrões propostos.
