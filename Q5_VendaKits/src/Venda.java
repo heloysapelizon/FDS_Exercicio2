@@ -5,14 +5,14 @@ import java.util.List;
 
 public class Venda {
     private LocalDateTime data;
-    private List<ItemDeVenda> itens;
+    private List<ComponenteVenda> itens;
 
     public Venda(LocalDateTime data) {
         this.data = data;
         itens = new ArrayList<>();
     }
 
-    public List<ItemDeVenda> getItens() {
+    public List<ComponenteVenda> getItens() {
         return itens;
     }
 
@@ -22,8 +22,8 @@ public class Venda {
 
     public double getTotal() {
         double total = 0.0;
-        for(ItemDeVenda item : itens){
-            total += item.getSubTotal();
+        for(ComponenteVenda item : itens){
+            total += item.getPreco();
         }
         return total;
     }
@@ -38,8 +38,8 @@ public class Venda {
         nota.append(String.format("COMPROVANTE DE VENDA%n"));
         nota.append(data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")));
         nota.append("\n");
-        for (ItemDeVenda item : itens) {
-            nota.append(item.toString());
+        for (ComponenteVenda item : itens) {
+            nota.append(item.getDescricao());
         }
         nota.append(String.format("Total: %.2f", getTotal()));
         return nota.toString();
